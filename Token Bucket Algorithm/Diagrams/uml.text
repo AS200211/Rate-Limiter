@@ -1,0 +1,23 @@
++-------------------+
+|   RateLimiter     |
+|-------------------|
+| - buckets: Map    |
+| - capacity        |
+| - refill_rate     |
+|-------------------|
+| + allow(user_id)  |
++---------+---------+
+          |
+          v
++-------------------+
+|      Bucket       |
+|-------------------|
+| - capacity        |
+| - tokens          |
+| - refill_rate     |
+| - last_refill_ts  |
+| - lock            |
+|-------------------|
+| + allow_request() |
+| - _refill()       |
++-------------------+
